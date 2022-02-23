@@ -1,0 +1,23 @@
+<div class="show-item">
+  <%= @member.name %><br>
+  <% if @member.in_time.min < 10%>
+    <% min = "0" + @member.in_time.min.to_s%>
+  <% else %>
+    <% min = @member.in_time.min.to_s%>
+  <% end %>
+  <% in_time = @member.in_time.hour.to_s + ":" + min%>
+  <label>入室時間</label><br>
+  <%= "#{in_time}"%><br>
+  <% if @member.out_time.min < 10%>
+    <% min = "0" + @member.out_time.min.to_s%>
+  <% else %>
+    <% min = @member.out_time.min.to_s%>
+  <% end %>
+  <label>退室予定時間</label><br>
+  <% out_time = @member.out_time.hour.to_s + ":" + min%>
+  <%= "#{out_time}"%><br>
+  <div class="text">
+    <%= link_to "編集", "/#{@member.id}/edit" %>
+    <%= link_to "退出", "/#{@member.id}/destroy", {method: "post"} %>
+  </div>
+</div>

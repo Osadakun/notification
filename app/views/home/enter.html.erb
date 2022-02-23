@@ -1,0 +1,9 @@
+<div class="form">
+	<%= form_with url: "/create_enter" do |f| %>
+		<%= f.label :name, "名前" %><br>
+		<%= f.text_field :name, required: true %><br>
+		<%= f.label :out_time, "退出予定時間" %><br>
+		<%= f.time_field :out_time, required: true %><br><br>
+		<%= f.submit "確定", class: "btn" %>
+	<% end %>
+</div>

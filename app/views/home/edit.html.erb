@@ -1,0 +1,11 @@
+<div class="form">
+	<%= form_with url: "/#{@member.id}/edit/update" do |f| %>
+		<%= f.label :name, "名前" %><br>
+		<%= f.text_field :name, required: true, value: "#{@member.name}" %><br>
+    <%= f.label :in_time, "入室予定時間" %><br>
+		<%= f.time_field :in_time, class: 'form-control'%><br>
+		<%= f.label :out_time, "退出予定時間" %><br>
+		<%= f.time_field :out_time, class: 'form-control'%><br><br>
+		<%= f.submit "確定", class: "btn" %>
+	<% end %>
+</div>

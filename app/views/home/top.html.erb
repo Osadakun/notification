@@ -1,0 +1,48 @@
+<div class="top-item">
+  <h1>在室管理</h1>
+  <div class="item_name">
+  <table>
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>部屋</th>
+        <th>入室(予定)時間</th>
+        <th>退出予定時間</th>
+      </tr>
+    </thead>
+  </div>
+  <% @member.each do |mem| %>
+    <tbody>
+      <tr>
+        <th><%= link_to mem.name, "/#{mem.id}", class:"user_name" %></th>
+        <th><%= f.select :faculty, [["A", "A"], ["A", "A"], ["A", "A"]], include_blank: "選択して下さい" %></th>
+        <% if Time.now >= mem.out_time %>
+          <%= link_to("/#{mem.id}/destroy", {method: "post"}) do %>
+            <button id="click">a</button>
+          <% end %>
+          <script>document.getElementById("click").click()</script>
+        <% end %>
+        <% if mem.in_time.min < 10%>
+          <% min = "0" + mem.in_time.min.to_s%>
+        <% else %>
+          <% min = mem.in_time.min.to_s%>
+        <% end %>
+        <% in_time = mem.in_time.hour.to_s + ":" + min%>
+        <th><%= "#{in_time}"%></th>
+        <% if mem.out_time.min < 10%>
+          <% min = "0" + mem.out_time.min.to_s%>
+        <% else %>
+          <% min = mem.out_time.min.to_s%>
+        <% end %>
+        <% out_time = mem.out_time.hour.to_s + ":" + min%>
+        <th><%= "#{out_time}"%></th>
+      </tr>
+    </tbody>
+  <% end %>
+  </table>
+
+  <div>
+    <%= link_to "入室", "/enter", class: "under_item" %>
+    <%= link_to "予約", "/res", class: "under_item" %>
+  </div>
+</div>
