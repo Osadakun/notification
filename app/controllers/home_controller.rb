@@ -20,7 +20,7 @@ class HomeController < ApplicationController
 
   def update
     @member = Member.find_by(id: params[:id])
-    @member.update(name: params[:name], in_time: params[:in_time], out_time: params[:out_time])
+    @member.update(name: params[:name], room: params[:room], in_time: params[:in_time], out_time: params[:out_time])
     redirect_to('/')
   end
 
