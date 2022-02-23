@@ -15,7 +15,7 @@
     <tbody>
       <tr>
         <th><%= link_to mem.name, "/#{mem.id}", class:"user_name" %></th>
-        <th><%= f.select :faculty, [["A", "A"], ["A", "A"], ["A", "A"]], include_blank: "選択して下さい" %></th>
+        <th><%= f.select :faculty, [["A", "A"], ["B", "B"], ["C", "C"]], include_blank: "選択して下さい" %></th>
         <% if Time.now >= mem.out_time %>
           <%= link_to("/#{mem.id}/destroy", {method: "post"}) do %>
             <button id="click">a</button>
