@@ -2,8 +2,8 @@
 	<%= form_with url: "/create_res" do |f| %>
 		<%= f.label :name, "名前" %><br>
 		<%= f.text_field :name, required: true %><br>
-		<%= f.label :name, "部屋" %><br>
-		<%= f.select :room, [["A", "A"], ["B", "B"], ["C", "C"]], include_blank: "選択して下さい" =%><br>
+		<%= f.label :room, "部屋" %><br>
+		<%= f.select :room, {sample1: 1, sample2: 2, sample3: 3}, include_blank: "選択して下さい" =%><br>
     <%= f.label :in_time, "入室予定時間" %><br>
 		<%= f.time_field :in_time, required: true	%><br>
 		<%= f.label :out_time, "退出予定時間" %><br>
