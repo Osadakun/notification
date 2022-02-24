@@ -26,13 +26,13 @@ class HomeController < ApplicationController
 
   def create_enter
     @times = Time.now
-    @member = Member.new(name: params[:name], in_time: @times, out_time: params[:out_time])
+    @member = Member.new(name: params[:name], room: params[:room], in_time: @times, out_time: params[:out_time])
     @member.save
     redirect_to('/')
   end
 
   def create_res
-    @member = Member.new(name: params[:name], in_time: params[:in_time], out_time: params[:out_time])
+    @member = Member.new(name: params[:name], room: params[:room], in_time: params[:in_time], out_time: params[:out_time])
     @member.save
     redirect_to('/')
   end

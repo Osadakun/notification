@@ -3,7 +3,7 @@
 		<%= f.label :name, "名前" %><br>
 		<%= f.text_field :name, required: true %><br>
 		<%= f.label :room, "部屋" %><br>
-		<%= f.select :room, {sample1: 1, sample2: 2, sample3: 3}, include_blank: "選択して下さい" =%><br>
+		<%= f.select :room, {"211": 211, "314": 314, "324": 324, "325": 325}, include_blank: "選択して下さい" =%><br>
     <%= f.label :in_time, "入室予定時間" %><br>
 		<%= f.time_field :in_time, required: true	%><br>
 		<%= f.label :out_time, "退出予定時間" %><br>
